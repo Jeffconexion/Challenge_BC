@@ -42,11 +42,16 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 ### Development Tools and Technologies
 
 <p display="inline-block">
+<p>
   <img width="10%"  src="https://static.wikia.nocookie.net/logopedia/images/e/ec/Microsoft_Visual_Studio_2022.svg" alt="vs-logo"/>
 </p>
-<p align="rigth" display="inline-block">
+
+<p>
   <img width="10%"  src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
 </p>
+
+</p>
+
 <!-- ## Running
 <p>
     <b>Criar Container: </b> docker run --name container_apiTudo -p 8000:80 apptodoapi.
