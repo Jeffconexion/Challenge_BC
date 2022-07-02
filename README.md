@@ -49,10 +49,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <p>
     <b>Criar Container: </b> docker run --name container_apiTudo -p 8000:80 apptodoapi.
 </p>
-
-<p>
-    <b>Link: </b> http://localhost:8000/swagger/Index.html
-</p> -->
+-->
 
 ## References
 [About .Net - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/fundamentals/)
