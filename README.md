@@ -1,36 +1,39 @@
-<h1 align="center">App To Do</h1>
-<p align="center"><i>Repository for versioning and project documentation used during the create Api.</i></p>
+<h1 align="center">App PostalCode</h1>
+<p align="center"><i>Repository for versioning and project documentation used during the create two Apis.</i></p>
 
 ##  About this project
 
 ### How it is structure
 
 <p>
-Structure and organize an Api Solution, I use Clean Architecture and CQRS, Design by contract, Model contexts and domains, 
-implment domain notifications. Then I implement repository pattern, login via an external provider.
+Structure and organize an Api Solution, I use Clean Architecture, Design by contract, Model contexts and domains. Then I implement repository pattern.
 </p>
 
 <p display="inline-block">
 <dl>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-           Scripts - tutorials to help with the project.      
+          Src - The libraries containing the source codes.      
     </dt>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-          Tests - Unit test and Mutant test.        
+          Docs - Project vision document.      
     </dt>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-          Src - It has three libary and one main project.       
+           Scripts - Postman scripts and database.      
     </dt>
+    <dt> 
+          <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
+          Tests - Unit test with xunit and Mutant test.        
+    </dt>
+    
 </dl>
 </p>
 
 <br>
 <p display="inline-block">
  <img align="left" width="45%" src="https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/media/image5-7.png"/> 
- <img align="rigth" width="45%" src="https://docs.microsoft.com/pt-br/azure/architecture/patterns/_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png"/>
 </p>
 <br><br><br>
 
@@ -45,26 +48,19 @@ implment domain notifications. Then I implement repository pattern, login via an
   <img width="48" src="https://static.wikia.nocookie.net/logopedia/images/e/ec/Microsoft_Visual_Studio_2022.svg" alt="vs-logo"/>
 </p>
 
-### Branchs
-<p display="inline-block">
-  <b>branch_simple:</b> No authentication, using memory persistence, simple application.
-</p>
-
-## Running
+<!-- ## Running
 <p>
     <b>Criar Container: </b> docker run --name container_apiTudo -p 8000:80 apptodoapi.
 </p>
 
 <p>
     <b>Link: </b> http://localhost:8000/swagger/Index.html
-</p>
+</p> -->
 
 ## References
 [About .Net - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/fundamentals/)
 
 [About Clean Ararchitectures - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
-
-[About Repository Pattern - Repository Docs](https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 
 
 
