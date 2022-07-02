@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -29,17 +30,16 @@ namespace WebApi.Application.Services
     /// <returns>return string json full postal code.</returns>
     public async Task<string> SearchPostalCodeJson(string postalcode)
     {
-      Url = _zipsSettings.Widenet + postalcode;
-
-      HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
-      request.AutomaticDecompression = DecompressionMethods.GZip;
-
-      using (var response = await request.GetResponseAsync())
-      using (Stream stream = response.GetResponseStream())
-      using (StreamReader reader = new StreamReader(stream))
+      try
       {
-        FullPostalCode = reader.ReadToEnd();
+        Url = _zipsSettings.Widenet + postalcode;
+        await HttpRequestPostalCode();
       }
+      catch (Exception)
+      {
+        throw new ArgumentException("The service is currently unavailable. Please contact support..");
+      }
+
       return FullPostalCode;
     }
 
@@ -50,8 +50,24 @@ namespace WebApi.Application.Services
     /// <returns>return object postal code.</returns>
     public async Task<PostalCodeDtos> SearchPostalCodeObject(string postalcode)
     {
-      Url = _zipsSettings.Widenet + postalcode;
+      try
+      {
+        Url = _zipsSettings.Widenet + postalcode;
+        await HttpRequestPostalCode();
+      }
+      catch (Exception)
+      {
+        throw new ArgumentException("The service is currently unavailable. Please contact support..");
+      }
+      return JsonConvert.DeserializeObject<PostalCodeDtos>(FullPostalCode);
+    }
 
+    /// <summary>
+    /// Create a new Request to get postal code.
+    /// </summary>
+    /// <returns></returns>
+    private async Task HttpRequestPostalCode()
+    {
       HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
       request.AutomaticDecompression = DecompressionMethods.GZip;
 
@@ -61,7 +77,7 @@ namespace WebApi.Application.Services
       {
         FullPostalCode = reader.ReadToEnd();
       }
-      return JsonConvert.DeserializeObject<PostalCodeDtos>(FullPostalCode);
     }
+
   }
 }
