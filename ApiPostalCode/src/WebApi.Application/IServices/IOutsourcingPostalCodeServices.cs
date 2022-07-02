@@ -5,8 +5,7 @@ namespace WebApi.Application.IServices
 {
   public interface IOutsourcingPostalCodeServices
   {
-    Task<string> SearchPostalCodeJson(string postalcode);
-    Task<PostalCodeDtos> SearchPostalCodeObject(string postalcode);
+    Task<PostalCodeDtos> SearchPostalCode(string postalcode);
 
   }
 }

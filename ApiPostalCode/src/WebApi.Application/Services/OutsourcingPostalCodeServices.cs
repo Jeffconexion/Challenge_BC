@@ -27,37 +27,17 @@ namespace WebApi.Application.Services
     /// Get Full postal code.
     /// </summary>
     /// <param name="postalcode">postal code</param>
-    /// <returns>return string json full postal code.</returns>
-    public async Task<string> SearchPostalCodeJson(string postalcode)
-    {
-      try
-      {
-        Url = _zipsSettings.Widenet + postalcode;
-        await HttpRequestPostalCode();
-      }
-      catch (Exception)
-      {
-        throw new ArgumentException("The service is currently unavailable. Please contact support..");
-      }
-
-      return FullPostalCode;
-    }
-
-    /// <summary>
-    /// Get Full postal code.
-    /// </summary>
-    /// <param name="postalcode">postal code</param>
     /// <returns>return object postal code.</returns>
-    public async Task<PostalCodeDtos> SearchPostalCodeObject(string postalcode)
+    public async Task<PostalCodeDtos> SearchPostalCode(string postalcode)
     {
       try
       {
         Url = _zipsSettings.Widenet + postalcode;
         await HttpRequestPostalCode();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
-        throw new ArgumentException("The service is currently unavailable. Please contact support..");
+        throw new ArgumentException("The service is currently unavailable. Please contact support:" + ex);
       }
       return JsonConvert.DeserializeObject<PostalCodeDtos>(FullPostalCode);
     }
