@@ -42,10 +42,10 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 ### Development Tools and Technologies
 
 <p display="inline-block">
-  <img width="45%"  src="https://static.wikia.nocookie.net/logopedia/images/e/ec/Microsoft_Visual_Studio_2022.svg" alt="vs-logo"/>
+  <img width="20%"  src="https://static.wikia.nocookie.net/logopedia/images/e/ec/Microsoft_Visual_Studio_2022.svg" alt="vs-logo"/>
 </p>
 <p align="rigth" display="inline-block">
-  <img width="45%"  src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
+  <img width="20%"  src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
 </p>
 <!-- ## Running
 <p>
