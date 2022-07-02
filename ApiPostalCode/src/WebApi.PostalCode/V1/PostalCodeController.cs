@@ -10,7 +10,7 @@ using WebApi.PostalCode.ViewModel;
 namespace WebApi.PostalCode.V1
 {
   [ApiVersion("1.0")]
-  [Route("api/v{version:apiVersion}/postalCode")]
+  [Route("api/v{version:apiVersion}/PostalCode")]
   public class PostalCodeController : MainController
   {
     private readonly IOutsourcingPostalCodeServices _iOutsourcingPostalCodeServices;
