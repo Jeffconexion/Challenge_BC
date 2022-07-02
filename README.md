@@ -1,7 +1,7 @@
 <h1 align="center">App PostalCode</h1>
 <p align="center"><i>Repository for versioning and project documentation used during the create two Apis.</i></p>
 
-##  About this project
+## About this project
 
 ### How it is structure
 
@@ -31,14 +31,16 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 </dl>
 </p>
 
-<br>
 <p display="inline-block">
- <img align="left" width="45%" src="https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/media/image5-7.png"/> 
+<dl>
+<dt> 
+<img align="left" width="45%" src="https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/media/image5-7.png"/> 
+</dt>
+</dl>
 </p>
-<br><br><br>
 
-                                                                                                  
 ### Development Tools and Technologies
+
 <p display="inline-block">
   <img width="48" src="https://static.wikia.nocookie.net/logopedia/images/e/ec/Microsoft_Visual_Studio_2022.svg" alt="vs-logo"/>
 </p>
@@ -52,10 +54,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 -->
 
 ## References
+
 [About .Net - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/fundamentals/)
 
 [About Clean Ararchitectures - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
-
-
-
-
