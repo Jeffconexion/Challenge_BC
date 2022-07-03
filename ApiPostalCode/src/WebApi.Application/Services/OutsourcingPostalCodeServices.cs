@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -10,6 +11,16 @@ using WebApi.Application.IServices;
 
 namespace WebApi.Application.Services
 {
+  /// <summary>
+  /// @author: Jefferson Santos
+  /// @Data  : 03/07/2022
+  /// 
+  /// OutsourcingPostalCodeServices is the most important component
+  /// of our application. It makes requests to the external api, with the
+  /// aim of obtaining the zip code.
+  /// 
+  /// ~~> Be careful when modifying this class!
+  /// </summary>
   public class OutsourcingPostalCodeServices : IOutsourcingPostalCodeServices
   {
     private string FullPostalCode { get; set; }
@@ -23,9 +34,6 @@ namespace WebApi.Application.Services
       Url = string.Empty;
     }
 
-    // public OutsourcingPostalCodeServices(){ }
-
-
     /// <summary>
     /// Get Full postal code.
     /// </summary>
@@ -35,12 +43,12 @@ namespace WebApi.Application.Services
     {
       try
       {
-        Url = _zipsSettings.Widenet + postalcode;
+        Url = new StringBuilder().Append(_zipsSettings.Widenet).Append(postalcode).ToString();
         await HttpRequestPostalCode();
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw new ArgumentException("The service is currently unavailable. Please contact support:" + ex);
+        throw new ArgumentException("The service is currently unavailable. Please contact support!");
       }
       return JsonConvert.DeserializeObject<PostalCodeDtos>(FullPostalCode);
     }
@@ -54,12 +62,10 @@ namespace WebApi.Application.Services
       HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
       request.AutomaticDecompression = DecompressionMethods.GZip;
 
-      using (var response = await request.GetResponseAsync())
-      using (Stream stream = response.GetResponseStream())
-      using (StreamReader reader = new StreamReader(stream))
-      {
-        FullPostalCode = reader.ReadToEnd();
-      }
+      using var response = await request.GetResponseAsync();
+      using Stream stream = response.GetResponseStream();
+      using StreamReader reader = new StreamReader(stream);
+      FullPostalCode = reader.ReadToEnd();
     }
 
   }

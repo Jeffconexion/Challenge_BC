@@ -18,8 +18,7 @@ namespace WebApi.UnitTest.Services
 
     public OutsourcingPostalCodeServicesTests()
     {
-      //PostalCodeValid = "01035-000";
-      PostalCodeValid = "49400-000";
+      PostalCodeValid = "01035-000";
       PostalCodeInvalid = "##$%¨&*";
     }
 
