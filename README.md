@@ -30,7 +30,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
     
 </dl>
 </p>
-<br><br><br>
+<br>
 
 <p display="inline-block">
 <dl>
@@ -70,3 +70,5 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 [About .Net - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/fundamentals/)
 
 [About Clean Ararchitectures - Microsoft Docs](https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
+
+[Mutation Test - Stryker.Net](https://stryker-mutator.io/docs/stryker-net/introduction/)
