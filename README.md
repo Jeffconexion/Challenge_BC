@@ -1,4 +1,4 @@
-<h1 align="center">App PostalCode</h1>
+<h1 align="center">Api PostalCode and Api RegisterCustomer</h1>
 <p align="center"><i>Repository for versioning and project documentation used during the create two Apis.</i></p>
 
 ## About this project
