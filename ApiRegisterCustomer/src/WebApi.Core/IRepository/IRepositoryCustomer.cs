@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
 
 namespace WebApi.Core.IRepository
 {
   public interface IRepositoryCustomer
   {
+
+    /// <summary>
+    /// Register new custumer
+    /// </summary>
+    /// <param name="custumer">object custumer</param>
+    /// <returns></returns>
+    Task CreateCustumer(Custumer custumer);
+
+
     /// <summary>
     /// Get all data with optional parameters 
     /// </summary>
