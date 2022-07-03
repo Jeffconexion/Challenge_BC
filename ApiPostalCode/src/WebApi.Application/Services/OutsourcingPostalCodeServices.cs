@@ -23,6 +23,9 @@ namespace WebApi.Application.Services
       Url = string.Empty;
     }
 
+    // public OutsourcingPostalCodeServices(){ }
+
+
     /// <summary>
     /// Get Full postal code.
     /// </summary>
