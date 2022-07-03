@@ -30,6 +30,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
     
 </dl>
 </p>
+<br><br><br>
 
 <p display="inline-block">
 <dl>
@@ -47,7 +48,15 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <img width="10%"  src="https://www.freeiconspng.com/uploads/c-logo-icon-18.png" alt="csharp-logo"/>
 
 </p>
+</p>
 
+### Mutation Test ApiPostalCode
+
+<p display="inline-block">
+<p>Mutation tests were used to validate my unit tests. Thus, ensuring well-done tests that add value.</p>
+<p>
+  <img width="80%"  src="https://github.com/Jeffconexion/Challenge_BC/blob/main/ApiPostalCode/docs/2_imgTestReport/ReportMutationTest.PNG" alt="vs-logo"/>
+</p>
 </p>
 
 <!-- ## Running
