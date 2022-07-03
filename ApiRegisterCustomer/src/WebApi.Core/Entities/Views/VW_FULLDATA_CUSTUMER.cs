@@ -4,15 +4,15 @@ namespace WebApi.Core.Entities.Views
 {
   public partial class VW_FULLDATA_CUSTUMER
   {
-    public string name { get; set; }
-    public string tax_id { get; set; }
-    public string phone_number { get; set; }
-    public DateTime? created_at { get; set; }
-    public string code { get; set; }
-    public string address { get; set; }
-    public string district { get; set; }
-    public string city { get; set; }
-    public string state { get; set; }
-    public string status { get; set; }
+    public string Name { get; set; }
+    public string TaxId { get; set; }
+    public string PhoneNumber { get; set; }
+    public DateTime? CreatedAt { get; set; }
+    public string Code { get; set; }
+    public string Address { get; set; }
+    public string District { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
+    public string Status { get; set; }
   }
 }
