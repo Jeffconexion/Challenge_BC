@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi.Core.Entities.Views;
 
-namespace WebApi.Core.IRepositories
+namespace WebApi.Core.IRepository
 {
   public interface IRepositoryCustomer
   {
@@ -14,6 +14,6 @@ namespace WebApi.Core.IRepositories
     /// <param name="tax_id">Documents</param>
     /// <param name="created_at">Criation Data</param>
     /// <returns></returns>
-    Task<IEnumerable<VW_FULLDATA_CUSTUMER>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
+    Task<IEnumerable<VwFullDataCustumer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
   }
 }

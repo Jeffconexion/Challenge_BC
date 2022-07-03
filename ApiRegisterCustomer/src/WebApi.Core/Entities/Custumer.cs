@@ -14,7 +14,7 @@ namespace WebApi.Core.Entities
     public string TaxId { get; set; }
     public string Password { get; set; }
     public string PhoneNumber { get; set; }
-    public DateTime? created_at { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
     public virtual IList<Address> AddressNavigation { get; set; }
 
