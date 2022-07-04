@@ -23,14 +23,14 @@ namespace WebApi.RegisterCustomer.V1
     }
 
     [HttpPost("/account")]
-    public async Task<ActionResult> RegisterCustomer([FromBody] CustomerViewModel customerViewModel)
+    public async Task<ActionResult<CustomerViewModel>> RegisterCustomer([FromBody] CustomerViewModel customerViewModel)
     {
       //varificação postal code.
       PostalCodeDtos fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
 
       Customer customer = CustomerViewModel.ToEntity(customerViewModel);
       await _customerService.AddCustomer(customer, fullAddress);
-      return null;
+      return new ObjectResult(customerViewModel);
     }
 
     [HttpGet("/account")]

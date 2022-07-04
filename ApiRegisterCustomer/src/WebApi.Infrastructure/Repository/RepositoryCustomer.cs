@@ -34,7 +34,7 @@ namespace WebApi.Infrastructure.Repository
       }
 
       address.IdCustomer = Customer.Id;
-      address.IdStatusAddress = statusAddress.Id;    
+      address.IdStatusAddress = statusAddress.Id;
 
       try
       {
@@ -43,9 +43,8 @@ namespace WebApi.Infrastructure.Repository
         await _context.Customers.AddAsync(Customer);
         await _context.SaveChangesAsync();
       }
-      catch (Exception ex)
+      catch (DbUpdateException ex)
       {
-
         throw ex;
       }
     }
