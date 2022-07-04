@@ -1,6 +1,5 @@
 ﻿using System;
-using System.IO;
-using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -59,14 +58,8 @@ namespace WebApi.Application.Services
     /// <returns></returns>
     private async Task HttpRequestPostalCode()
     {
-      HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
-      request.AutomaticDecompression = DecompressionMethods.GZip;
-
-      using var response = await request.GetResponseAsync();
-      using Stream stream = response.GetResponseStream();
-      using StreamReader reader = new StreamReader(stream);
-      FullPostalCode = reader.ReadToEnd();
+      HttpClient cliente = new HttpClient();
+      FullPostalCode = await cliente.GetStringAsync(Url);
     }
-
   }
 }

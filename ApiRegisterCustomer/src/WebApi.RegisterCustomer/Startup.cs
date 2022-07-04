@@ -9,6 +9,8 @@ using WebApi.Application.CustomerServices;
 using WebApi.Application.ICustomerServices;
 using WebApi.Core.IRepository;
 using WebApi.Infrastructure.Context;
+using WebApi.Infrastructure.ExternalServices;
+using WebApi.Infrastructure.ExternalServices.IExternalServices;
 using WebApi.Infrastructure.Repository;
 
 namespace WebApi.RegisterCustomer
@@ -40,6 +42,9 @@ namespace WebApi.RegisterCustomer
       services.AddScoped<DataContext>();
       services.AddScoped<IRepositoryCustomer, RepositoryCustomer>();
       services.AddScoped<ICustomerService, CustomerService>();
+      services.AddScoped<IExternalHttpManagerServices, ExternalHttpManagerServices>();
+      services.AddScoped<IPostalCodeServices, PostalCodeServices>();
+
 
     }
 

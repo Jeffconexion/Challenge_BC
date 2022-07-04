@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using WebApi.Application.Dtos;
 using WebApi.Application.IServices;
 using WebApi.PostalCode.Controllers;
@@ -39,33 +38,9 @@ namespace WebApi.PostalCode.V1
 
       if (postalCodeResult.Ok is false)
       {
-        return new ObjectResult(JsonConvert.SerializeObject(postalCodeResult)) { StatusCode = 400, Value = "The server will not process the request due to an error in the information sent" };
+        return new JsonResult(postalCodeResult) { StatusCode = 400, Value = "The server will not process the request due to an error in the information sent" };
       }
-      return new ObjectResult(JsonConvert.SerializeObject(postalCodeResult)) { StatusCode = 200 };
-    }
-
-    /// <summary>
-    /// Method to find for the postal code
-    /// </summary>
-    /// <param name="postalCodeViewModel">postal code.</param>
-    /// <returns>return object PostalCodeDtos</returns>
-    /// <response code="200">The request was successful.</response>
-    /// <response code="400">The server will not process the request due to an error in the information sent.</response>
-    /// <response code="500">The server cannot process the request due to a maintenance condition or temporary overload.</response>
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    [Route("/object/postalCode")]
-    [HttpGet]
-    public async Task<ActionResult<PostalCodeDtos>> SearchPostalCodeObject([FromQuery] PostalCodeViewModel postalCodeViewModel)
-    {
-      PostalCodeDtos postalCodeResult = await _iOutsourcingPostalCodeServices.SearchPostalCode(postalCodeViewModel.PostalCode);
-
-      if (postalCodeResult.Ok is false)
-      {
-        return new ObjectResult(postalCodeResult) { StatusCode = 400, Value = "The server will not process the request due to an error in the information sent" };
-      }
-      return new ObjectResult(postalCodeResult) { StatusCode = 200 };
+      return new JsonResult(postalCodeResult) { StatusCode = 200 };
     }
   }
 }
