@@ -28,7 +28,7 @@ namespace WebApi.Infrastructure.Repository
         statusAddress.Status = "PENDING";
       }
 
-      if(address.Code is not null)
+      if (address.Code is not null)
       {
         statusAddress.Status = "APPROVED";
       }
@@ -51,12 +51,10 @@ namespace WebApi.Infrastructure.Repository
 
     public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)
     {
-
       List<VwFullDataCustomer> custumerList = await _context.VwFullDataCustomers
                                  .AsNoTracking()
                                  .Where(c => c.Name.Equals(name) || c.TaxId.Equals(tax_id))
                                  .ToListAsync();
-
       return custumerList;
     }
   }

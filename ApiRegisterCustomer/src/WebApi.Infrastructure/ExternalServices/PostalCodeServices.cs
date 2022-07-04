@@ -15,7 +15,7 @@ namespace WebApi.Infrastructure.ExternalServices
     }
 
     public async Task<PostalCodeDtos> GetFullAddress(string postalCode)
-    {      
+    {
       var endpointQuery = $"json/postalCode?PostalCode={postalCode}";
 
       PostalCodeDtos response = await _externalHttpManagerServices.CallGetApiPostalCode<PostalCodeDtos, FormUrlEncodedContent>(null, endpointQuery, HttpMethod.Get);

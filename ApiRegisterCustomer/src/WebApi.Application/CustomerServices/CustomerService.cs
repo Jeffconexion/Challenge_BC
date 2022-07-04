@@ -20,15 +20,15 @@ namespace WebApi.Application.CustomerServices
 
     public async Task AddCustomer(Customer Customer, PostalCodeDtos fullAddress)
     {
-      var address = new Address() 
-      { 
-       State = fullAddress.State,
-       City = fullAddress.City,
-       District = fullAddress.District,
-       Street = fullAddress.Address,
-       Code = fullAddress.Code      
+      var address = new Address()
+      {
+        State = fullAddress.State,
+        City = fullAddress.City,
+        District = fullAddress.District,
+        Street = fullAddress.Address,
+        Code = fullAddress.Code
       };
-      
+
       await _repositoryCustomer.AddCustomer(Customer, address);
     }
 
