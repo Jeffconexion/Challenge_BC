@@ -148,5 +148,21 @@ VALUES
 )
     
 
+--> rascunhos
+SELECT * FROM TB_CUSTUMER
+SELECT * FROM TB_ADDRESS
+SELECT * FROM TB_STATUS_ADDRESS
 
+SELECT * FROM VW_FULLDATA_CUSTUMER where created_at  BETWEEN  '03-07-2022' AND '03-07-2022 23:59:59';
+
+{07/03/2022 00:00:00}
+
+select * from VW_FULLDATA_CUSTUMER where name like 'Tiago Chavier'
+
+select * from VW_FULLDATA_CUSTUMER  where datediff(day, '03-07-2022', '03-07-2022') =0
+
+
+delete from TB_CUSTUMER
+delete from TB_STATUS_ADDRESS
+delete from TB_ADDRESS
 

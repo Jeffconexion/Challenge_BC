@@ -44,11 +44,11 @@ namespace WebApi.Infrastructure.Mappings
           .HasColumnName("state")
           .IsUnicode(false);
 
-      entity.HasOne(d => d.IdCustomerNavigation)
+      entity.HasOne(d => d.CustomerNavigation)
           .WithMany(p => p.AddressNavigation)
           .HasForeignKey(d => d.IdCustomer);
 
-      entity.HasOne(d => d.IdStatusAddressNavigation)
+      entity.HasOne(d => d.StatusAddressNavigation)
           .WithMany(p => p.AddressNavigation)
           .HasForeignKey(d => d.IdStatusAddress);
     }

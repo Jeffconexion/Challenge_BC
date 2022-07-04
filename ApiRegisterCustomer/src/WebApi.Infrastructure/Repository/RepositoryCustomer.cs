@@ -21,6 +21,33 @@ namespace WebApi.Infrastructure.Repository
 
     public async Task AddCustomer(Customer Customer, Address address)
     {
+      var statusAddress = AddStatusAddress(address);
+
+      address.IdCustomer = Customer.Id;
+      address.IdStatusAddress = statusAddress.Id;
+
+      try
+      {
+        await _context.AddRangeAsync(Customer, statusAddress, address);
+        await _context.SaveChangesAsync();
+      }
+      catch (DbUpdateException ex)
+      {
+        throw ex;
+      }
+    }    
+
+    public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)
+    {
+      List<VwFullDataCustomer> custumerList = await _context.VwFullDataCustomers
+                                 .AsNoTracking()
+                                 .Where(c => c.Name.Equals(name) || c.TaxId.Equals(tax_id))
+                                 .ToListAsync();
+      return custumerList;
+    }
+
+    private StatusAddress AddStatusAddress(Address address)
+    {
       StatusAddress statusAddress = new StatusAddress();
 
       if (address.Code is null)
@@ -33,29 +60,7 @@ namespace WebApi.Infrastructure.Repository
         statusAddress.Status = "APPROVED";
       }
 
-      address.IdCustomer = Customer.Id;
-      address.IdStatusAddress = statusAddress.Id;
-
-      try
-      {
-        await _context.StatusAdresses.AddAsync(statusAddress);
-        await _context.Adresses.AddAsync(address);
-        await _context.Customers.AddAsync(Customer);
-        await _context.SaveChangesAsync();
-      }
-      catch (DbUpdateException ex)
-      {
-        throw ex;
-      }
-    }
-
-    public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)
-    {
-      List<VwFullDataCustomer> custumerList = await _context.VwFullDataCustomers
-                                 .AsNoTracking()
-                                 .Where(c => c.Name.Equals(name) || c.TaxId.Equals(tax_id))
-                                 .ToListAsync();
-      return custumerList;
+      return statusAddress;
     }
   }
 }
