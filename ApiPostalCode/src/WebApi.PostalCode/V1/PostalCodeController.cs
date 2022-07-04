@@ -38,8 +38,10 @@ namespace WebApi.PostalCode.V1
 
       if (postalCodeResult.Ok is false)
       {
-        return new JsonResult(postalCodeResult) { StatusCode = 400, Value = "The server will not process the request due to an error in the information sent" };
+        postalCodeResult.MessageResult = "The server will not process the request due to an error in the information sent.";
+        return new JsonResult(postalCodeResult) { StatusCode = 400 };
       }
+      postalCodeResult.MessageResult = "The request was successful.";
       return new JsonResult(postalCodeResult) { StatusCode = 200 };
     }
   }

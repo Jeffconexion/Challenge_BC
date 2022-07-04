@@ -10,7 +10,7 @@ namespace WebApi.Infrastructure.ExternalServices
 {
   public class ExternalHttpManagerServices : IExternalHttpManagerServices
   {
-    public async Task<TOutput> CallGetApiTaxaDeJuros<TOutput, TInput>(TInput requestBody, string endpoint, HttpMethod verb) where TInput : HttpContent
+    public async Task<TOutput> CallGetApiPostalCode<TOutput, TInput>(TInput requestBody, string endpoint, HttpMethod verb) where TInput : HttpContent
     {
       using var client = new HttpClient();
       client.BaseAddress = new Uri("https://localhost:44338/");
