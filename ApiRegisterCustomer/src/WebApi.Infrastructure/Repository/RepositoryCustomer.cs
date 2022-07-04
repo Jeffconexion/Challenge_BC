@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
 using WebApi.Core.IRepository;
+using WebApi.Core.Queries;
 using WebApi.Infrastructure.Context;
 
 namespace WebApi.Infrastructure.Repository
@@ -35,14 +35,14 @@ namespace WebApi.Infrastructure.Repository
       {
         throw ex;
       }
-    }    
+    }
 
-    public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)
+    public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, string created_at)
     {
       List<VwFullDataCustomer> custumerList = await _context.VwFullDataCustomers
-                                 .AsNoTracking()
-                                 .Where(c => c.Name.Equals(name) || c.TaxId.Equals(tax_id))
-                                 .ToListAsync();
+                                                            .AsNoTracking()
+                                                            .Where(CustomerQuerys.GetFilterSpecificParameters(name, tax_id, created_at))
+                                                            .ToListAsync();
       return custumerList;
     }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi.Application.ICustomerServices;
 using WebApi.Core.Entities;
@@ -32,7 +31,7 @@ namespace WebApi.Application.CustomerServices
       await _repositoryCustomer.AddCustomer(Customer, address);
     }
 
-    public async Task<IEnumerable<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)
+    public async Task<IEnumerable<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, string created_at)
     {
       var custumerList = await _repositoryCustomer.GetFullDataWithFilter(name, tax_id, created_at);
       return custumerList;

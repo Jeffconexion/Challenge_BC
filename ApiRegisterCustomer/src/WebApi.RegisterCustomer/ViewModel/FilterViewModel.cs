@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace WebApi.RegisterCustomer.ViewModel
 {
@@ -12,6 +11,6 @@ namespace WebApi.RegisterCustomer.ViewModel
     public string TaxId { get; set; }
 
     [JsonPropertyName("created_at")]
-    public DateTime CreatedAt { get; set; }
+    public string CreatedAt { get; set; }
   }
 }

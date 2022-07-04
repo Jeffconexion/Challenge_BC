@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
@@ -24,6 +23,6 @@ namespace WebApi.Core.IRepository
     /// <param name="tax_id">Documents</param>
     /// <param name="created_at">Criation Data</param>
     /// <returns></returns>
-    Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
+    Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, string created_at);
   }
 }
