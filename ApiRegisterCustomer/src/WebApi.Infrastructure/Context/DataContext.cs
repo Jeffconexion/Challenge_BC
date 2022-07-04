@@ -9,9 +9,9 @@ namespace WebApi.Infrastructure.Context
   public class DataContext : DbContext
   {
     public virtual DbSet<Address> Adresses { get; set; }
-    public virtual DbSet<Custumer> Customers { get; set; }
+    public virtual DbSet<Customer> Customers { get; set; }
     public virtual DbSet<StatusAddress> StatusAdresses { get; set; }
-    public virtual DbSet<VwFullDataCustumer> VwFullDataCustumers { get; set; }
+    public virtual DbSet<VwFullDataCustomer> VwFullDataCustomers { get; set; }
 
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {

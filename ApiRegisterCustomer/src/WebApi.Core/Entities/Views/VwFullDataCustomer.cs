@@ -2,7 +2,7 @@
 
 namespace WebApi.Core.Entities.Views
 {
-  public partial class VwFullDataCustumer
+  public partial class VwFullDataCustomer
   {
     public string Name { get; set; }
     public string TaxId { get; set; }

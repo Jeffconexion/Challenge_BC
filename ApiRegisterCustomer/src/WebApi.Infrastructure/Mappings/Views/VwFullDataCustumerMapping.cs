@@ -4,9 +4,9 @@ using WebApi.Core.Entities.Views;
 
 namespace WebApi.Infrastructure.Mappings.Views
 {
-  public class VwFullDataCustumerMapping : IEntityTypeConfiguration<VwFullDataCustumer>
+  public class VwFullDataCustumerMapping : IEntityTypeConfiguration<VwFullDataCustomer>
   {
-    public void Configure(EntityTypeBuilder<VwFullDataCustumer> entity)
+    public void Configure(EntityTypeBuilder<VwFullDataCustomer> entity)
     {
       entity.HasNoKey();
       entity.ToView("VW_FULLDATA_CUSTUMER");

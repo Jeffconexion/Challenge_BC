@@ -4,9 +4,9 @@ using WebApi.Core.Entities;
 
 namespace WebApi.Infrastructure.Mappings
 {
-  public class CustumerMapping : IEntityTypeConfiguration<Custumer>
+  public class CustumerMapping : IEntityTypeConfiguration<Customer>
   {
-    public void Configure(EntityTypeBuilder<Custumer> entity)
+    public void Configure(EntityTypeBuilder<Customer> entity)
     {
       entity.ToTable("TB_CUSTUMER");
       entity.Property(e => e.Id).ValueGeneratedNever();

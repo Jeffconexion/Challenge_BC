@@ -12,7 +12,7 @@ namespace WebApi.Core.Entities
     public string Street { get; set; }
     public string Code { get; set; }
 
-    public virtual Custumer IdCustumerNavigation { get; set; }
+    public virtual Customer IdCustumerNavigation { get; set; }
     public virtual StatusAddress IdStatusAddressNavigation { get; set; }
   }
 }

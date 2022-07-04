@@ -10,20 +10,20 @@ namespace WebApi.Core.IRepository
   {
 
     /// <summary>
-    /// Register new custumer
+    /// Register new Customer
     /// </summary>
-    /// <param name="custumer">object custumer</param>
+    /// <param name="Customer">object Customer</param>
     /// <returns></returns>
-    Task CreateCustumer(Custumer custumer);
+    Task CreateCustumer(Customer Customer);
 
 
     /// <summary>
     /// Get all data with optional parameters 
     /// </summary>
-    /// <param name="name">Name Custumer</param>
+    /// <param name="name">Name Customer</param>
     /// <param name="tax_id">Documents</param>
     /// <param name="created_at">Criation Data</param>
     /// <returns></returns>
-    Task<IEnumerable<VwFullDataCustumer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
+    Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
   }
 }

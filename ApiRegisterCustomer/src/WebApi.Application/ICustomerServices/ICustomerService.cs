@@ -6,14 +6,14 @@ using WebApi.Core.Entities.Views;
 
 namespace WebApi.Application.ICustomerServices
 {
-  public interface ICustumerService
+  public interface ICustomerService
   {
     /// <summary>
-    /// Service to add new custumer.
+    /// Service to add new Customer.
     /// </summary>
-    /// <param name="custumer">Object custumer</param>
+    /// <param name="Customer">Object Customer</param>
     /// <returns></returns>
-    Task CreateCustumer(Custumer custumer);
+    Task CreateCustumer(Customer Customer);
 
     /// <summary>
     /// Service to get all data with filter.
@@ -22,6 +22,6 @@ namespace WebApi.Application.ICustomerServices
     /// <param name="tax_id">document</param>
     /// <param name="created_at">creation date</param>
     /// <returns></returns>
-    public Task<IEnumerable<VwFullDataCustumer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
+    public Task<IEnumerable<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at);
   }
 }
