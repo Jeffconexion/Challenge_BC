@@ -4,7 +4,7 @@ using WebApi.Core.Entities;
 
 namespace WebApi.Infrastructure.Mappings
 {
-  public class CustumerMapping : IEntityTypeConfiguration<Customer>
+  public class CustomerMapping : IEntityTypeConfiguration<Customer>
   {
     public void Configure(EntityTypeBuilder<Customer> entity)
     {

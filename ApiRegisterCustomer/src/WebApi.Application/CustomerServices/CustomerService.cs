@@ -5,6 +5,7 @@ using WebApi.Application.ICustomerServices;
 using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
 using WebApi.Core.IRepository;
+using WebApi.Infrastructure.ExternalServices.DtosExternal;
 
 namespace WebApi.Application.CustomerServices
 {
@@ -17,9 +18,18 @@ namespace WebApi.Application.CustomerServices
       _repositoryCustomer = repositoryCustumer;
     }
 
-    public async Task CreateCustumer(Customer Customer)
+    public async Task AddCustomer(Customer Customer, PostalCodeDtos fullAddress)
     {
-      await _repositoryCustomer.CreateCustumer(Customer);
+      var address = new Address() 
+      { 
+       State = fullAddress.State,
+       City = fullAddress.City,
+       District = fullAddress.District,
+       Street = fullAddress.Address,
+       Code = fullAddress.Code      
+      };
+      
+      await _repositoryCustomer.AddCustomer(Customer, address);
     }
 
     public async Task<IEnumerable<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)

@@ -20,9 +20,9 @@ namespace WebApi.Infrastructure.Context
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.ApplyConfiguration(new AddressMapping());
-      modelBuilder.ApplyConfiguration(new CustumerMapping());
+      modelBuilder.ApplyConfiguration(new CustomerMapping());
       modelBuilder.ApplyConfiguration(new StatusAddressMapping());
-      modelBuilder.ApplyConfiguration(new VwFullDataCustumerMapping());
+      modelBuilder.ApplyConfiguration(new VwFullDataCustomerMapping());
     }
   }
 }

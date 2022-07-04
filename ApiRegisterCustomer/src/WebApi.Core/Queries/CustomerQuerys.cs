@@ -4,7 +4,7 @@ using WebApi.Core.Entities.Views;
 
 namespace WebApi.Core.Queries
 {
-  public static class CustumerQuerys
+  public static class CustomerQuerys
   {
     public static Expression<Func<VwFullDataCustomer, bool>> GetAll(string name, string tax_id, DateTime created_at)
     {

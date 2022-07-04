@@ -14,7 +14,7 @@ namespace WebApi.Core.IRepository
     /// </summary>
     /// <param name="Customer">object Customer</param>
     /// <returns></returns>
-    Task CreateCustumer(Customer Customer);
+    Task AddCustomer(Customer Customer, Address address);
 
 
     /// <summary>

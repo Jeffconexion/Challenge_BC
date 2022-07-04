@@ -12,6 +12,13 @@ namespace WebApi.Infrastructure.Mappings
       entity.Property(e => e.Id).ValueGeneratedNever();
       entity.HasKey(e => e.Id);
 
+
+      entity.Property(e => e.IdCustomer)
+        .HasColumnName("id_custumer");
+
+      entity.Property(e => e.IdStatusAddress)
+        .HasColumnName("id_status_address");
+
       entity.Property(e => e.Street)
           .HasMaxLength(200)
           .HasColumnName("address")
@@ -37,9 +44,9 @@ namespace WebApi.Infrastructure.Mappings
           .HasColumnName("state")
           .IsUnicode(false);
 
-      entity.HasOne(d => d.IdCustumerNavigation)
+      entity.HasOne(d => d.IdCustomerNavigation)
           .WithMany(p => p.AddressNavigation)
-          .HasForeignKey(d => d.IdCustumer);
+          .HasForeignKey(d => d.IdCustomer);
 
       entity.HasOne(d => d.IdStatusAddressNavigation)
           .WithMany(p => p.AddressNavigation)

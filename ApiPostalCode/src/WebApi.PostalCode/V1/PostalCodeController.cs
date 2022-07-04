@@ -32,7 +32,7 @@ namespace WebApi.PostalCode.V1
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [Route("/json/postalCode")]
     [HttpGet]
-    public async Task<ActionResult<string>> GetJsonPostalCode([FromQuery] PostalCodeViewModel postalCodeViewModel)
+    public async Task<ActionResult> GetJsonPostalCode([FromQuery] PostalCodeViewModel postalCodeViewModel)
     {
       PostalCodeDtos postalCodeResult = await _iOutsourcingPostalCodeServices.SearchPostalCode(postalCodeViewModel.PostalCode);
 

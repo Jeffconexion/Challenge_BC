@@ -19,10 +19,35 @@ namespace WebApi.Infrastructure.Repository
       _context = context;
     }
 
-    public async Task CreateCustumer(Customer Customer)
+    public async Task AddCustomer(Customer Customer, Address address)
     {
-      await _context.Customers.AddAsync(Customer);
-      await _context.SaveChangesAsync();
+      StatusAddress statusAddress = new StatusAddress();
+
+      if (address.Code is null)
+      {
+        statusAddress.Status = "PENDING";
+      }
+
+      if(address.Code is not null)
+      {
+        statusAddress.Status = "APPROVED";
+      }
+
+      address.IdCustomer = Customer.Id;
+      address.IdStatusAddress = statusAddress.Id;    
+
+      try
+      {
+        await _context.StatusAdresses.AddAsync(statusAddress);
+        await _context.Adresses.AddAsync(address);
+        await _context.Customers.AddAsync(Customer);
+        await _context.SaveChangesAsync();
+      }
+      catch (Exception ex)
+      {
+
+        throw ex;
+      }
     }
 
     public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, DateTime created_at)
