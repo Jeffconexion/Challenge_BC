@@ -25,9 +25,11 @@ namespace WebApi.PostalCode.V1
     /// <param name="postalCodeViewModel">postal code.</param>
     /// <returns>return string json</returns>
     /// <response code="200">The request was successful.</response>
+    /// <response code="201">The request was completely processed by the server and one or more resources were created as a result.</response>
     /// <response code="400">The server will not process the request due to an error in the information sent.</response>
     /// <response code="500">The server cannot process the request due to a maintenance condition or temporary overload.</response>
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [Route("/json/postalCode")]
@@ -38,11 +40,11 @@ namespace WebApi.PostalCode.V1
 
       if (postalCodeResult.Ok is false)
       {
-        postalCodeResult.MessageResult = "The server will not process the request due to an error in the information sent.";
-        return new JsonResult(postalCodeResult) { StatusCode = 400 };
+        return  BadRequest($"The server will not process the request due to an error in the information sent. Status= {StatusCodes.Status400BadRequest}");
       }
-      postalCodeResult.MessageResult = "The request was successful.";
-      return new JsonResult(postalCodeResult) { StatusCode = 200 };
+      //return new JsonResult(postalCodeResult) { StatusCode = 200 };
+      return CreatedAtAction("GetJsonPostalCode", postalCodeViewModel, postalCodeResult);
+
     }
   }
 }

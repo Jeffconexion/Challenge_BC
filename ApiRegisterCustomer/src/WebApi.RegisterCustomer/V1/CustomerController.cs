@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.Dtos;
 using WebApi.Application.ICustomerServices;
@@ -37,9 +38,8 @@ namespace WebApi.RegisterCustomer.V1
       }
       catch (HttpRequestException)
       {
-        return BadRequest("WebApi.PostalCode is not working, make sure it is running");
+        return BadRequest($"ApiPostalCode cannot process the request due to a maintenance condition or temporary overload. Status= {StatusCodes.Status400BadRequest}");
       }
-
     }
 
     [HttpGet("/account")]

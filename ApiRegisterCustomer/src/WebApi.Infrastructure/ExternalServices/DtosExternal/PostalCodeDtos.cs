@@ -26,9 +26,6 @@ namespace WebApi.Infrastructure.ExternalServices.DtosExternal
     public string Address { get; set; }
 
     [JsonPropertyName("statusText")]
-    public string StatusText { get; set; }
-
-    [JsonPropertyName("message")]
-    public string MessageResult { get; set; }
+    public string StatusText { get; set; }    
   }
 }

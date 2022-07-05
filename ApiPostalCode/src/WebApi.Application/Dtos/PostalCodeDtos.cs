@@ -27,8 +27,6 @@ namespace WebApi.Application.Dtos
 
     [JsonPropertyName("statusText")]
     public string StatusText { get; set; }
-
-    [JsonPropertyName("message")]
-    public string MessageResult { get; set; }
+    
   }
 }
