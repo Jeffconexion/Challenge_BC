@@ -30,6 +30,7 @@ namespace WebApi.RegisterCustomer.V1
       try
       {
         PostalCodeDtos fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
+
         Customer customer = CustomerViewModel.ToEntity(customerViewModel);
         ResponseDtos response = await _customerService.AddCustomer(customer, fullAddress);
         return CreatedAtAction("RegisterCustomer", customerViewModel, response);
@@ -42,10 +43,10 @@ namespace WebApi.RegisterCustomer.V1
     }
 
     [HttpGet("/account")]
-    public async Task<ActionResult> GetCustomer([FromQuery] FilterViewModel parameters)
+    public async Task<IActionResult> GetCustomer([FromQuery] FilterViewModel parameters)
     {
       var resultSearch = await _customerService.GetFullDataWithFilter(parameters.Name, parameters.TaxId, parameters.CreatedAt);
-      return Ok(resultSearch);
+      return CreatedAtAction("GetCustomer", parameters, resultSearch);
     }
 
   }
