@@ -83,27 +83,6 @@ inner join TB_STATUS_ADDRESS s
 ON s.id = a.id_status_address;
 
 
--- CREATE VIEW ALL DATE BUT STATUS PENDING
-CREATE VIEW VW_FULLDATA_CUSTUMER_IS_PENDING
-AS
-SELECT c.name, c.tax_id, c.phone_number, c.created_at, a.code, a.address, a.district, a.city, a.state, s.status
-FROM TB_CUSTUMER c
-inner join TB_ADDRESS a
-ON c.id = a.id_custumer
-inner join TB_STATUS_ADDRESS s
-ON s.id = a.id_status_address
-WHERE s.status like 'PENDING'
-
--- CREATE VIEW ALL DATE BUT STATUS APPROVED
-CREATE VIEW VW_FULLDATA_CUSTUMER_IS_APPROVED
-AS
-SELECT c.name, c.tax_id, c.phone_number, c.created_at, a.code, a.address, a.district, a.city, a.state, s.status
-FROM TB_CUSTUMER c
-inner join TB_ADDRESS a
-ON c.id = a.id_custumer
-inner join TB_STATUS_ADDRESS s
-ON s.id = a.id_status_address
-WHERE s.status like 'APPROVED'
 
 -- SELECT VW_FULLDATA_CUSTUMER
 SELECT * FROM VW_FULLDATA_CUSTUMER;

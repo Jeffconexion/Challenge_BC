@@ -39,12 +39,22 @@ namespace WebApi.Infrastructure.Repository
 
     public async Task<List<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, string created_at)
     {
-      List<VwFullDataCustomer> custumerList = await _context.VwFullDataCustomers
-                                                            .AsNoTracking()
-                                                            .Where(CustomerQuerys.GetFilterSpecificParameters(name, tax_id, created_at))
-                                                            .ToListAsync();
+      List<VwFullDataCustomer> custumerList;
+      if (AllParametrsIsEmpty(name, tax_id, created_at))
+      {
+        custumerList = await _context.VwFullDataCustomers
+                                         .AsNoTracking()
+                                         .ToListAsync();
+        return custumerList;
+      }
+
+      custumerList = await _context.VwFullDataCustomers
+                                         .AsNoTracking()
+                                         .Where(CustomerQuerys.GetFilterSpecificParameters(name, tax_id, created_at))
+                                         .ToListAsync();
       return custumerList;
     }
+       
 
     private StatusAddress AddStatusAddress(Address address)
     {
@@ -62,5 +72,13 @@ namespace WebApi.Infrastructure.Repository
 
       return statusAddress;
     }
+
+    private static bool AllParametrsIsEmpty(string name, string tax_id, string created_at)
+    {
+      return string.IsNullOrWhiteSpace(name) is true && 
+             string.IsNullOrWhiteSpace(tax_id) is true && 
+             string.IsNullOrWhiteSpace(created_at) is true;
+    }
+
   }
 }
