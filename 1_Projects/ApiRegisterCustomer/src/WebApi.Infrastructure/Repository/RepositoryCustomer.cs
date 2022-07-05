@@ -54,18 +54,18 @@ namespace WebApi.Infrastructure.Repository
                                          .ToListAsync();
       return custumerList;
     }
-       
+
 
     private StatusAddress AddStatusAddress(Address address)
     {
       StatusAddress statusAddress = new StatusAddress();
 
-      if (address.Code is null)
+      if (string.IsNullOrWhiteSpace(address.Code) is true)
       {
         statusAddress.Status = "PENDING";
       }
 
-      if (address.Code is not null)
+      if (string.IsNullOrWhiteSpace(address.Code) is false)
       {
         statusAddress.Status = "APPROVED";
       }
@@ -75,8 +75,8 @@ namespace WebApi.Infrastructure.Repository
 
     private static bool AllParametrsIsEmpty(string name, string tax_id, string created_at)
     {
-      return string.IsNullOrWhiteSpace(name) is true && 
-             string.IsNullOrWhiteSpace(tax_id) is true && 
+      return string.IsNullOrWhiteSpace(name) is true &&
+             string.IsNullOrWhiteSpace(tax_id) is true &&
              string.IsNullOrWhiteSpace(created_at) is true;
     }
 

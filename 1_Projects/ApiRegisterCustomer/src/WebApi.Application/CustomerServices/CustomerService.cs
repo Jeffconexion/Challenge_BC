@@ -23,11 +23,11 @@ namespace WebApi.Application.CustomerServices
 
       var address = new Address()
       {
-        State = fullAddress.State,
-        City = fullAddress.City,
-        District = fullAddress.District,
-        Street = fullAddress.Address,
-        Code = fullAddress.Code
+        State = fullAddress?.State,
+        City = fullAddress?.City,
+        District = fullAddress?.District,
+        Street = fullAddress?.Address,
+        Code = fullAddress?.Code
       };
 
       await _repositoryCustomer.AddCustomer(customer, address);

@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.IServices;
+using WebApi.Core.Dtos;
 
 namespace WebApi.PostalCode.Controllers.V1
 {
   [ApiVersion("1.0")]
-  [Route("api/v{version:apiVersion}/PostalCode")]
+  [Route("api/v{version:apiVersion}/postalCode")]
   public class PostalCodeController : MainController
   {
     private readonly IOutsourcingPostalCodeServices _iOutsourcingPostalCodeServices;
@@ -29,16 +30,17 @@ namespace WebApi.PostalCode.Controllers.V1
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    [Route("/json/postalCode")]
-    [HttpGet]
+    [HttpGet("{postalCodeDtos}")]
     public async Task<ActionResult> GetJsonPostalCode(string postalCodeDtos)
     {
-      var postalCodeResult = await _iOutsourcingPostalCodeServices.SearchPostalCode(postalCodeDtos);
+      PostalCodeDtos postalCodeResult = await _iOutsourcingPostalCodeServices.SearchPostalCode(postalCodeDtos);
 
       if (postalCodeResult.Ok is false)
       {
-        return BadRequest($"The server will not process the request due to an error in the information sent. Status= {StatusCodes.Status400BadRequest}");
+        return BadRequest(new { Status = postalCodeResult.Status, StatusText = "The server will not process the request due to an error in the information sent, please enter a valid zip code." });
+
       }
+
       return CreatedAtAction("GetJsonPostalCode", postalCodeDtos, postalCodeResult);
     }
   }

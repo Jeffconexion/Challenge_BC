@@ -2,18 +2,14 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.Dtos;
 using WebApi.Application.ICustomerServices;
-using WebApi.Core.Entities;
-using WebApi.Infrastructure.ExternalServices.DtosExternal;
 using WebApi.Infrastructure.ExternalServices.IExternalServices;
-using WebApi.RegisterCustomer.Controllers;
 using WebApi.RegisterCustomer.ViewModel;
 
-namespace WebApi.RegisterCustomer.V1
+namespace WebApi.RegisterCustomer.Controllers.V1
 {
   [ApiVersion("1.0")]
-  [Route("api/v{version:apiVersion}/Customer")]
+  [Route("api/v{version:apiVersion}")]
   public class CustomerController : MainController
   {
     private readonly ICustomerService _customerService;
@@ -30,10 +26,20 @@ namespace WebApi.RegisterCustomer.V1
     {
       try
       {
-        PostalCodeDtos fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
+        var fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
 
-        Customer customer = CustomerViewModel.ToEntity(customerViewModel);
-        ResponseDtos response = await _customerService.AddCustomer(customer, fullAddress);
+        if(fullAddress?.Status is 400)
+        {
+          return BadRequest(fullAddress);
+        }
+
+        if (fullAddress?.Status is 404)
+        {
+          return BadRequest(fullAddress);
+        }
+
+        var customer = CustomerViewModel.ToEntity(customerViewModel);
+        var response = await _customerService.AddCustomer(customer, fullAddress);
         return CreatedAtAction("RegisterCustomer", customerViewModel, response);
       }
       catch (HttpRequestException)
