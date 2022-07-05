@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,7 @@ using WebApi.Infrastructure.Context;
 using WebApi.Infrastructure.ExternalServices;
 using WebApi.Infrastructure.ExternalServices.IExternalServices;
 using WebApi.Infrastructure.Repository;
+using WebApi.RegisterCustomer.Validations;
 
 namespace WebApi.RegisterCustomer
 {
@@ -33,7 +35,10 @@ namespace WebApi.RegisterCustomer
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
       });
 
-      services.AddControllers();
+      services.AddControllers()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
+
+
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi.RegisterCustomer", Version = "v1" });
