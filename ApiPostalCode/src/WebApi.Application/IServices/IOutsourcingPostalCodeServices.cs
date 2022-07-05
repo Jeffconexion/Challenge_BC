@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using WebApi.Application.Dtos;
+using WebApi.Core.Dtos;
 
 namespace WebApi.Application.IServices
 {

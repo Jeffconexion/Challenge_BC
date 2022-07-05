@@ -1,12 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.Dtos;
 using WebApi.Application.IServices;
-using WebApi.PostalCode.Controllers;
-using WebApi.PostalCode.ViewModel;
 
-namespace WebApi.PostalCode.V1
+namespace WebApi.PostalCode.Controllers.V1
 {
   [ApiVersion("1.0")]
   [Route("api/v{version:apiVersion}/PostalCode")]
@@ -22,7 +19,7 @@ namespace WebApi.PostalCode.V1
     /// <summary>
     /// Method to find for the postal code
     /// </summary>
-    /// <param name="postalCodeViewModel">postal code.</param>
+    /// <param name="postalCodeDtos">postal code.</param>
     /// <returns>return string json</returns>
     /// <response code="200">The request was successful.</response>
     /// <response code="201">The request was completely processed by the server and one or more resources were created as a result.</response>
@@ -34,17 +31,15 @@ namespace WebApi.PostalCode.V1
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [Route("/json/postalCode")]
     [HttpGet]
-    public async Task<ActionResult> GetJsonPostalCode([FromQuery] PostalCodeViewModel postalCodeViewModel)
+    public async Task<ActionResult> GetJsonPostalCode(string postalCodeDtos)
     {
-      PostalCodeDtos postalCodeResult = await _iOutsourcingPostalCodeServices.SearchPostalCode(postalCodeViewModel.PostalCode);
+      var postalCodeResult = await _iOutsourcingPostalCodeServices.SearchPostalCode(postalCodeDtos);
 
       if (postalCodeResult.Ok is false)
       {
-        return  BadRequest($"The server will not process the request due to an error in the information sent. Status= {StatusCodes.Status400BadRequest}");
+        return BadRequest($"The server will not process the request due to an error in the information sent. Status= {StatusCodes.Status400BadRequest}");
       }
-      //return new JsonResult(postalCodeResult) { StatusCode = 200 };
-      return CreatedAtAction("GetJsonPostalCode", postalCodeViewModel, postalCodeResult);
-
+      return CreatedAtAction("GetJsonPostalCode", postalCodeDtos, postalCodeResult);
     }
   }
 }

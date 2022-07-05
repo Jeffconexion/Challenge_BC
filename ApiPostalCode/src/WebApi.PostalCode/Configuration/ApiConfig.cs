@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 
 namespace WebApi.PostalCode.Configuration
 {
@@ -49,7 +50,7 @@ namespace WebApi.PostalCode.Configuration
                 builder
                     .WithMethods("GET")
                     .SetIsOriginAllowedToAllowWildcardSubdomains()
-                    //.WithHeaders(HeaderNames.ContentType, "x-custom-header")
+                    .WithHeaders(HeaderNames.ContentType, "x-custom-header")
                     .AllowAnyHeader());
       });
 

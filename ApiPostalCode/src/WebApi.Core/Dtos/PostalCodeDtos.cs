@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace WebApi.Application.Dtos
+namespace WebApi.Core.Dtos
 {
   public class PostalCodeDtos
   {
@@ -27,6 +27,6 @@ namespace WebApi.Application.Dtos
 
     [JsonPropertyName("statusText")]
     public string StatusText { get; set; }
-    
+
   }
 }

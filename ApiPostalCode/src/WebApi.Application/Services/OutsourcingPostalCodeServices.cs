@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using WebApi.Application.Config;
-using WebApi.Application.Dtos;
 using WebApi.Application.IServices;
+using WebApi.Core.Dtos;
 
 namespace WebApi.Application.Services
 {

@@ -17,7 +17,6 @@ namespace WebApi.PostalCode.Configuration
       services.AddScoped<IOutsourcingPostalCodeServices, OutsourcingPostalCodeServices>();
       services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
-
       return services;
     }
   }

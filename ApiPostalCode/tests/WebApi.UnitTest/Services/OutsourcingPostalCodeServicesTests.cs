@@ -2,8 +2,8 @@
 using FluentAssertions;
 using Microsoft.Extensions.Options;
 using WebApi.Application.Config;
-using WebApi.Application.Dtos;
 using WebApi.Application.Services;
+using WebApi.Core.Dtos;
 using Xunit;
 
 namespace WebApi.UnitTest.Services
