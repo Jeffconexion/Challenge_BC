@@ -17,7 +17,8 @@ namespace WebApi.RegisterCustomer.Validations
       RuleFor(c => c.TaxId)
                 .NotEmpty()
                 .NotNull()
-                .Must(DocumentValidation);
+                .Must(DocumentValidation)
+                .WithMessage("The document provided is not valid.");
 
       RuleFor(c => c.Password)
                 .NotEmpty()

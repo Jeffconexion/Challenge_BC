@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.Dtos;
 using WebApi.Application.ICustomerServices;
 using WebApi.Core.Entities;
 using WebApi.Infrastructure.ExternalServices.DtosExternal;
@@ -23,14 +25,20 @@ namespace WebApi.RegisterCustomer.V1
     }
 
     [HttpPost("/account")]
-    public async Task<ActionResult<CustomerViewModel>> RegisterCustomer([FromBody] CustomerViewModel customerViewModel)
+    public async Task<IActionResult> RegisterCustomer([FromBody] CustomerViewModel customerViewModel)
     {
-      //varificação postal code.
-      PostalCodeDtos fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
+      try
+      {
+        PostalCodeDtos fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
+        Customer customer = CustomerViewModel.ToEntity(customerViewModel);
+        ResponseDtos response = await _customerService.AddCustomer(customer, fullAddress);
+        return CreatedAtAction("RegisterCustomer", customerViewModel, response);
+      }
+      catch (HttpRequestException)
+      {
+        return BadRequest("WebApi.PostalCode is not working, make sure it is running");
+      }
 
-      Customer customer = CustomerViewModel.ToEntity(customerViewModel);
-      await _customerService.AddCustomer(customer, fullAddress);
-      return new ObjectResult(customerViewModel);
     }
 
     [HttpGet("/account")]

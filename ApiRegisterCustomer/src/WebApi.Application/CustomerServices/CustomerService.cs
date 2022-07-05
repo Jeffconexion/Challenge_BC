@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebApi.Application.Dtos;
 using WebApi.Application.ICustomerServices;
 using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
@@ -17,8 +18,9 @@ namespace WebApi.Application.CustomerServices
       _repositoryCustomer = repositoryCustumer;
     }
 
-    public async Task AddCustomer(Customer Customer, PostalCodeDtos fullAddress)
+    public async Task<ResponseDtos> AddCustomer(Customer customer, PostalCodeDtos fullAddress)
     {
+
       var address = new Address()
       {
         State = fullAddress.State,
@@ -28,7 +30,11 @@ namespace WebApi.Application.CustomerServices
         Code = fullAddress.Code
       };
 
-      await _repositoryCustomer.AddCustomer(Customer, address);
+      await _repositoryCustomer.AddCustomer(customer, address);
+
+      var response = new ResponseDtos(customer, address);
+
+      return response;
     }
 
     public async Task<IEnumerable<VwFullDataCustomer>> GetFullDataWithFilter(string name, string tax_id, string created_at)

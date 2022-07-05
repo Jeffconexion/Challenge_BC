@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Core", "1_Core", "{15EA8D65-5FCA-421D-9C89-FC1B631D95B5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Core", "4_Core", "{15EA8D65-5FCA-421D-9C89-FC1B631D95B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Core", "src\WebApi.Core\WebApi.Core.csproj", "{8278E574-06AA-45EF-9396-E7D9E4B11BD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Core", "src\WebApi.Core\WebApi.Core.csproj", "{8278E574-06AA-45EF-9396-E7D9E4B11BD7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Infrastructure", "2_Infrastructure", "{86C0B864-74D3-41E8-AC32-AA9C656AF5A8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Infrastructure", "3_Infrastructure", "{86C0B864-74D3-41E8-AC32-AA9C656AF5A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Infrastructure", "src\WebApi.Infrastructure\WebApi.Infrastructure.csproj", "{E30344BC-7D10-4E65-BA98-BAE99F606D43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infrastructure", "src\WebApi.Infrastructure\WebApi.Infrastructure.csproj", "{E30344BC-7D10-4E65-BA98-BAE99F606D43}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Application", "3_Application", "{7908ED8E-6422-4514-B333-5E3A4F92EFB7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Application", "2_Application", "{7908ED8E-6422-4514-B333-5E3A4F92EFB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Application", "src\WebApi.Application\WebApi.Application.csproj", "{67751509-FA3F-40B3-9A60-DBCA15517601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Application", "src\WebApi.Application\WebApi.Application.csproj", "{67751509-FA3F-40B3-9A60-DBCA15517601}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Api", "4_Api", "{E02B3032-D07E-4975-9A98-33C264486F97}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Api", "1_Api", "{E02B3032-D07E-4975-9A98-33C264486F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.RegisterCustomer", "src\WebApi.RegisterCustomer\WebApi.RegisterCustomer.csproj", "{601215CC-C349-4991-9E5D-8DC3CFAC7A01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.RegisterCustomer", "src\WebApi.RegisterCustomer\WebApi.RegisterCustomer.csproj", "{601215CC-C349-4991-9E5D-8DC3CFAC7A01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

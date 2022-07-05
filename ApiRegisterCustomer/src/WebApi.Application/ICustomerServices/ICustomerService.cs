@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebApi.Application.Dtos;
 using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
 using WebApi.Infrastructure.ExternalServices.DtosExternal;
@@ -13,7 +14,7 @@ namespace WebApi.Application.ICustomerServices
     /// </summary>
     /// <param name="Customer">Object Customer</param>
     /// <returns></returns>
-    Task AddCustomer(Customer Customer, PostalCodeDtos fullAddress);
+    Task<ResponseDtos> AddCustomer(Customer Customer, PostalCodeDtos fullAddress);
 
     /// <summary>
     /// Service to get all data with filter.
