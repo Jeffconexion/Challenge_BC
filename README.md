@@ -13,19 +13,19 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <dl>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-          Src - The libraries containing the source codes.      
+          1_Projects - It has ApiPostalCode and ApiRegisterCostumer.      
     </dt>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-          Docs - Project vision document.      
+          2_Documentation - It has the document with an overview..      
     </dt>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-           Scripts - Postman scripts and database.      
+          3_Scripts - It has SQL Server Scripts and Post.      
     </dt>
     <dt> 
           <img width="48" src="https://img.icons8.com/emoji/48/000000/open-file-folder-emoji.png"/>
-          Tests - Unit test with xunit and Mutant test.        
+          4_TesteReport - Mutation test reports.        
     </dt>
     
 </dl>
@@ -55,7 +55,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <p display="inline-block">
 <p>Mutation tests were used to validate my unit tests. Thus, ensuring well-done tests that add value.</p>
 <p>
-  <img width="80%"  src="https://github.com/Jeffconexion/Challenge_BC/blob/main/ApiPostalCode/docs/2_imgTestReport/ReportMutationTest.PNG" alt="vs-logo"/>
+  <img width="80%"  src="https://github.com/Jeffconexion/Challenge_BC/blob/main/4_TestReport/1_MutationTestReport/img/ReportMutationTest.PNG" alt="vs-logo"/>
 </p>
 </p>
 
