@@ -123,12 +123,12 @@ namespace WebApi.RegisterCustomer.Validations
       return true;
     }
 
-    private static string ExtractNumber(string valor)
+    public static string ExtractNumber(string valor)
     {
       return (new Regex(@"\D", RegexOptions.IgnoreCase).Replace(valor, string.Empty));
     }
 
-    public bool ValidPassword(string password)
+    public static bool ValidPassword(string password)
     {
       var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
 
