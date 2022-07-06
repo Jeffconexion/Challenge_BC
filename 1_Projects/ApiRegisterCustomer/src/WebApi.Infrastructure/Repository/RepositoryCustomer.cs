@@ -18,7 +18,6 @@ namespace WebApi.Infrastructure.Repository
     {
       _context = context;
     }
-
     public async Task AddCustomer(Customer Customer, Address address)
     {
       var statusAddress = AddStatusAddress(address);
@@ -54,7 +53,6 @@ namespace WebApi.Infrastructure.Repository
                                          .ToListAsync();
       return custumerList;
     }
-
 
     private StatusAddress AddStatusAddress(Address address)
     {

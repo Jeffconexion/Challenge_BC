@@ -2,7 +2,7 @@
 
 namespace WebApi.RegisterCustomer.ViewModel
 {
-  public class FilterViewModel
+  public class FilterDtos
   {
     [JsonPropertyName("name")]
     public string Name { get; set; }

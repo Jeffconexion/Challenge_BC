@@ -11,7 +11,7 @@ namespace WebApi.Infrastructure.Mappings
       entity.ToTable("TB_STATUS_ADDRESS");
       entity.HasKey(e => e.Id);
       entity.Property(e => e.Id)
-        .ValueGeneratedNever();//talvelz precise remover aqui
+        .ValueGeneratedNever();
 
       entity.Property(e => e.Status)
           .HasMaxLength(10)

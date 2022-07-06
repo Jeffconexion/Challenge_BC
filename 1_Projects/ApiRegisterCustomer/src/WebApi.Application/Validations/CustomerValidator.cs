@@ -4,7 +4,7 @@ using WebApi.RegisterCustomer.ViewModel;
 
 namespace WebApi.RegisterCustomer.Validations
 {
-  public class CustomerValidator : AbstractValidator<CustomerViewModel>
+  public class CustomerValidator : AbstractValidator<CustomerDtos>
   {
     public CustomerValidator()
     {
@@ -29,9 +29,6 @@ namespace WebApi.RegisterCustomer.Validations
       RuleFor(c => c.PhoneNumber);
 
       RuleFor(c => c.PostalCode);
-
-
-
     }
 
     public bool DocumentValidation(string value)

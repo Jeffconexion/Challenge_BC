@@ -22,13 +22,13 @@ namespace WebApi.RegisterCustomer.Controllers.V1
     }
 
     [HttpPost("/account")]
-    public async Task<IActionResult> RegisterCustomer([FromBody] CustomerViewModel customerViewModel)
+    public async Task<IActionResult> RegisterCustomer([FromBody] CustomerDtos customerViewModel)
     {
       try
       {
         var fullAddress = await _postalCodeServices.GetFullAddress(customerViewModel.PostalCode);
 
-        if(fullAddress?.Status is 400)
+        if (fullAddress?.Status is 400)
         {
           return BadRequest(fullAddress);
         }
@@ -38,7 +38,7 @@ namespace WebApi.RegisterCustomer.Controllers.V1
           return BadRequest(fullAddress);
         }
 
-        var customer = CustomerViewModel.ToEntity(customerViewModel);
+        var customer = CustomerDtos.ToEntity(customerViewModel);
         var response = await _customerService.AddCustomer(customer, fullAddress);
         return CreatedAtAction("RegisterCustomer", customerViewModel, response);
       }
@@ -49,7 +49,7 @@ namespace WebApi.RegisterCustomer.Controllers.V1
     }
 
     [HttpGet("/account")]
-    public async Task<IActionResult> GetCustomer([FromQuery] FilterViewModel parameters)
+    public async Task<IActionResult> GetCustomer([FromQuery] FilterDtos parameters)
     {
       var resultSearch = await _customerService.GetFullDataWithFilter(parameters.Name, parameters.TaxId, parameters.CreatedAt);
       return CreatedAtAction("GetCustomer", parameters, resultSearch);

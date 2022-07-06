@@ -3,7 +3,7 @@ using WebApi.Core.Entities;
 
 namespace WebApi.RegisterCustomer.ViewModel
 {
-  public class CustomerViewModel
+  public class CustomerDtos
   {
     [JsonPropertyName("name")]
     public string Name { get; set; }
@@ -20,7 +20,7 @@ namespace WebApi.RegisterCustomer.ViewModel
     [JsonPropertyName("postal_code")]
     public string PostalCode { get; set; }
 
-    public static Customer ToEntity(CustomerViewModel customer)
+    public static Customer ToEntity(CustomerDtos customer)
     {
       return new Customer(
           customer.Name,
