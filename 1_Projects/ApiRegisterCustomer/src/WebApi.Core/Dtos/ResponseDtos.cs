@@ -32,5 +32,10 @@ namespace WebApi.Application.Dtos
       Address = new AddressDtos(address);
       Status = (address.Code is null) ? "PENDING" : "APPROVED";
     }
+
+    public ResponseDtos()
+    {
+
+    }
   }
 }

@@ -12,7 +12,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace WebApi.PostalCode.Configuration
+namespace WebApi.RegisterCustomer.Configuration
 {
   public static class SwaggerConfig
   {
@@ -61,9 +61,9 @@ namespace WebApi.PostalCode.Configuration
       {
         var info = new OpenApiInfo()
         {
-          Title = "API - Postal Code",
+          Title = "API - Register Customer",
           Version = description.ApiVersion.ToString(),
-          Description = "This Api is responsible for communicating with zip code services from other companies.",
+          Description = "This Api is responsible for register and search clientes.",
           Contact = new OpenApiContact() { Name = "Jefferson Santos", Url = new Uri("https://www.linkedin.com/in/jeffsantosti/") },
           License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
         };
@@ -138,8 +138,5 @@ namespace WebApi.PostalCode.Configuration
       }
     }
   }
+
 }
-
-
-
-

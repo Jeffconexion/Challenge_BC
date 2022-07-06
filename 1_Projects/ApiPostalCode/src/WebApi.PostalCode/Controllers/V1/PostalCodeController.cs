@@ -40,7 +40,6 @@ namespace WebApi.PostalCode.Controllers.V1
         return BadRequest(new { Status = postalCodeResult.Status, StatusText = "The server will not process the request due to an error in the information sent, please enter a valid zip code." });
 
       }
-
       return CreatedAtAction("GetJsonPostalCode", postalCodeDtos, postalCodeResult);
     }
   }
