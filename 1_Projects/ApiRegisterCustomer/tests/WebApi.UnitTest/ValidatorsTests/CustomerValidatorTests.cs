@@ -44,6 +44,10 @@ namespace WebApi.UnitTest.Validators
     [InlineData("974.928.090-34")]
     [InlineData("07612635003")]
     [InlineData("088.702.870-50")]
+    [InlineData("107.965.050-47")]
+    [InlineData("759.170.350-16")]
+    [InlineData("59185600091")]
+    [InlineData("84150995095")]
     public void CustomerValidator_TheoryCpf_ReturnTrue(string cpf)
     {
       //Arrange
@@ -62,8 +66,13 @@ namespace WebApi.UnitTest.Validators
     [InlineData("68189204028")]
     [InlineData("09833887019")]
     [InlineData("964.928.090-34")]
-    [InlineData("07612635103")]
-    [InlineData("088.709.870-50")]
+    [InlineData("076126351035432")]
+    [InlineData("088.709.870-5012")]
+    [InlineData("$%¨&*(453245")]
+    [InlineData("6474080507352543")]
+    [InlineData("")]
+    [InlineData("772.326.390-23-02411123432455454")]
+    [InlineData("9.140-50")]
     public void CustomerValidator_TheoryCpf_ReturnFalse(string cpf)
     {
       //Arrange
@@ -112,6 +121,11 @@ namespace WebApi.UnitTest.Validators
     [InlineData("22543378000174")]
     [InlineData("11141208000147")]
     [InlineData("78324752000103")]
+    [InlineData("73.668.090/0001-67")]
+    [InlineData("42.822.855/0001-48")]
+    [InlineData("04.381.719/0001-70")]
+    [InlineData("40205177000149")]
+    [InlineData("17366320000162")]
     public void CustomerValidator_TheoryCnpj_ReturnTrue(string cnpj)
     {
       //Arrange
@@ -132,6 +146,11 @@ namespace WebApi.UnitTest.Validators
     [InlineData("42543378000174")]
     [InlineData("51141208000147")]
     [InlineData("68324752000103")]
+    [InlineData("683247520001036")]
+    [InlineData("6832@47520$00103")]
+    [InlineData("68324752000103/12")]
+    [InlineData("78.798.5860001-7914234532434543452")]
+    [InlineData("")]
     public void CustomerValidator_TheoryCnpj_ReturnFalse(string cnpj)
     {
       //Arrange
