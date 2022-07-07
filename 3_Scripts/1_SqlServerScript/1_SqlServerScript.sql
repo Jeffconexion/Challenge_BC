@@ -31,7 +31,7 @@ CREATE TABLE TB_CUSTUMER(
     name varchar(60) not null,
     tax_id varchar(25) not null,
     password varchar(30) not null,
-    phone_number varchar(max) null,
+    phone_number varchar(30) null,
     created_at datetime DEFAULT GETDATE()
 );
 
