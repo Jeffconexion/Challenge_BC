@@ -35,7 +35,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <p display="inline-block">
 <dl>
 <dt> 
-<img  width="130%" src="https://github.com/Jeffconexion/Challenge_BC/blob/main/1_Projects/img/ArquiteturaDaSolucao.png"/> 
+<img  width="150%" src="https://github.com/Jeffconexion/Challenge_BC/blob/main/1_Projects/img/ArquiteturaDaSolucao.png"/> 
 </dt>
 </dl>
 </p>
@@ -49,6 +49,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 
 </p>
 </p>
+<br>
 
 ### Mutation Test ApiPostalCode
 
@@ -58,12 +59,6 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
   <img width="90%"  src="https://github.com/Jeffconexion/Challenge_BC/blob/main/4_TestReport/1_MutationTestReport/img/1_ApiPostalCodeEApiRegisterCustomer.png" alt="vs-logo"/>
 </p>
 </p>
-
-<!-- ## Running
-<p>
-    <b>Criar Container: </b> docker run --name container_apiTudo -p 8000:80 apptodoapi.
-</p>
--->
 
 ## References
 
