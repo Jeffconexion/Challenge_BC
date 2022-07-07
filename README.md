@@ -35,7 +35,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <p display="inline-block">
 <dl>
 <dt> 
-<img  width="50%" src="https://docs.microsoft.com/pt-br/dotnet/architecture/modern-web-apps-azure/media/image5-7.png"/> 
+<img  width="50%" src="https://github.com/Jeffconexion/Challenge_BC/blob/main/1_Projects/img/ArquiteturaDaSolucao.png"/> 
 </dt>
 </dl>
 </p>
