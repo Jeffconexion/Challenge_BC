@@ -167,8 +167,6 @@ namespace WebApi.UnitTest.Validators
     [Trait("CustomerValidator", "Return true")]
     public void CustomerValidator_NumberExtraction_ReturnTrue()
     {
-      //Arrange
-      CustomerValidator customer = new CustomerValidator();
 
       //Act
       var customerResult = CustomerValidator.ExtractNumber("557.611.520-11");
@@ -186,9 +184,6 @@ namespace WebApi.UnitTest.Validators
     [InlineData("3892.617.640-10", "389261764010")]
     public void CustomerValidator_ManyNumberExtraction_ReturnTrue(string CpfToClean, string CpfClean)
     {
-      //Arrange
-      CustomerValidator customer = new CustomerValidator();
-
       //Act
       var customerResult = CustomerValidator.ExtractNumber(CpfToClean);
 
@@ -200,9 +195,6 @@ namespace WebApi.UnitTest.Validators
     [Trait("CustomerValidator", "Return true")]
     public void CustomerValidator_Password_ReturnTrue()
     {
-      //Arrange
-      CustomerValidator customer = new CustomerValidator();
-
       //Act
       var customerResult = CustomerValidator.ValidPassword("12345678Ac%");
 
@@ -214,9 +206,6 @@ namespace WebApi.UnitTest.Validators
     [Trait("CustomerValidator", "Return false")]
     public void CustomerValidator_Password_ReturnFalse()
     {
-      //Arrange
-      CustomerValidator customer = new CustomerValidator();
-
       //Act
       var customerResult = CustomerValidator.ValidPassword("1234567891");
 
@@ -235,9 +224,6 @@ namespace WebApi.UnitTest.Validators
     [InlineData("W5IH0XL!zEmeUWQ$m5$lUe4m72e^qj")]
     public void CustomerValidator_ManyPassword_ReturnTrue(string password)
     {
-      //Arrange
-      CustomerValidator customer = new CustomerValidator();
-
       //Act
       var customerResult = CustomerValidator.ValidPassword(password);
 
@@ -256,9 +242,6 @@ namespace WebApi.UnitTest.Validators
     [InlineData("AMangwZ$rqJmxgcwohptC")]
     public void CustomerValidator_ManyPassword_ReturnFase(string password)
     {
-      //Arrange
-      CustomerValidator customer = new CustomerValidator();
-
       //Act
       var customerResult = CustomerValidator.ValidPassword(password);
 
