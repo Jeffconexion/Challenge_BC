@@ -18,7 +18,8 @@ namespace WebApi.Infrastructure.ExternalServices
     {
       var endpointQuery = $" api/v1/postalCode/{postalCodeDtos}";
 
-      PostalCodeDtos response = await _externalHttpManagerServices.CallGetApiPostalCode<PostalCodeDtos, FormUrlEncodedContent>(null, endpointQuery, HttpMethod.Get);
+      var response = await _externalHttpManagerServices.CallGetApiPostalCode<PostalCodeDtos, FormUrlEncodedContent>
+                                                       (requestBody: null, endpoint: endpointQuery, verb: HttpMethod.Get);
 
       return response;
     }

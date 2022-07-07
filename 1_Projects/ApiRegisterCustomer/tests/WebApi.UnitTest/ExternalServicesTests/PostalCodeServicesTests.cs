@@ -25,7 +25,7 @@ namespace WebApi.UnitTest.ExternalServicesTests
     [Trait("External HttpService", "Can be not null or HttpRequestException")]
     [InlineData("19085-220")]
     [InlineData("69317-394")]
-    [InlineData("21842-602")]    
+    [InlineData("21842-602")]
     [InlineData("79106-064")]
     public async Task ExternalHttpService_CheckEndpoint_NotBeNull(string postalCodeDtos)
     {

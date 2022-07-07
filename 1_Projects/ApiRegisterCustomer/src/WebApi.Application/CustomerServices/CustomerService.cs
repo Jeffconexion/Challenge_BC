@@ -6,6 +6,7 @@ using WebApi.Application.ICustomerServices;
 using WebApi.Core.Entities;
 using WebApi.Core.Entities.Views;
 using WebApi.Core.IRepository;
+using WebApi.Infrastructure.ExternalServices.DtosExternal;
 using WebApi.Infrastructure.ExternalServices.IExternalServices;
 
 namespace WebApi.Application.CustomerServices
@@ -39,7 +40,7 @@ namespace WebApi.Application.CustomerServices
       return response;
     }
 
-    private async Task<Infrastructure.ExternalServices.DtosExternal.PostalCodeDtos> SearchPostalCode(string postalCode)
+    private async Task<PostalCodeDtos> SearchPostalCode(string postalCode)
     {
       var fullAddress = await _postalCodeServices.GetFullAddress(postalCode);
 
