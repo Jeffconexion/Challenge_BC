@@ -55,7 +55,7 @@ Structure and organize an Api Solution, I use Clean Architecture, Design by cont
 <p display="inline-block">
 <p>Mutation tests were used to validate my unit tests. Thus, ensuring well-done tests that add value.</p>
 <p>
-  <img width="80%"  src="https://github.com/Jeffconexion/Challenge_BC/blob/main/4_TestReport/1_MutationTestReport/img/ReportMutationTest.PNG" alt="vs-logo"/>
+  <img width="90%"  src="https://github.com/Jeffconexion/Challenge_BC/blob/main/4_TestReport/1_MutationTestReport/img/1_ApiPostalCodeEApiRegisterCustomer.png" alt="vs-logo"/>
 </p>
 </p>
 
