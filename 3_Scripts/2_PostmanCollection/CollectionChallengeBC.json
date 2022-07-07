@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "78276bce-bef0-4189-88f4-d6ec17be957c",
+		"name": "ChallengeBC",
+		"description": "## Api.PostalCode\n\nTem a responsabilidade em enviar requisições a um link externo, retornando um endereço por completo.\n\n## Api.RegisterCustomer\n\nTem a responsabilidade em registrar um novo cliente e de realizar buscas por um ou vários clientes.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18644267"
+	},
+	"item": [
+		{
+			"name": "Get v1/postalcode/{postalcode}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44338/api/v1/postalCode/{{postalcode}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44338",
+					"path": [
+						"api",
+						"v1",
+						"postalCode",
+						"{{postalcode}}"
+					]
+				},
+				"description": "O método busca mediante o CEP informado, o endereço completo."
+			},
+			"response": []
+		},
+		{
+			"name": "Get v1/account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44361/account",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44361",
+					"path": [
+						"account"
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "Felipe",
+							"disabled": true
+						},
+						{
+							"key": "TaxId",
+							"value": "456.518.568-70",
+							"disabled": true
+						},
+						{
+							"key": "CreatedAt",
+							"value": "2022-07-06T01%3A55%3A30.007",
+							"disabled": true
+						}
+					]
+				},
+				"description": "O método busca um ou mais clientes cadastrados.."
+			},
+			"response": []
+		},
+		{
+			"name": "Post v1/account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Sebastiana\",\r\n    \"tax_id\":\"38814041806\",\r\n    \"password\":\"12s34T56#\",\r\n    \"phone_number\":\"(79) 2601-8122\",\r\n    \"postal_code\":\"49095-780\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44361/account",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44361",
+					"path": [
+						"account"
+					]
+				},
+				"description": "O método cadastra um novo cliente."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "postalcode",
+			"value": "01035-000"
+		}
+	]
+}
