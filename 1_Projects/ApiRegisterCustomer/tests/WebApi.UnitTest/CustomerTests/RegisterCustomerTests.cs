@@ -36,5 +36,8 @@ namespace WebApi.UnitTest.RegisterCustomer
       resultNewCustomer.Should().NotBeNull().And.NotBe(false).And.BeOfType(typeof(ResponseDtos));
     }
 
+
+
+
   }
 }
