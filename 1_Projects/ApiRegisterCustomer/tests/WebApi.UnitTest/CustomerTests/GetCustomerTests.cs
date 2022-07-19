@@ -88,9 +88,9 @@ namespace WebApi.UnitTest.CustomerTests
       vwFullDataCustomerList.Should().BeNullOrEmpty();
     }
 
-    [Fact(DisplayName = "How many times call.")]
+    [Fact(DisplayName = "Times once call.")]
     [Trait("Verify Method", "Return true")]
-    public void Customer_VerifyMethod_ReturnTrue()
+    public void Customer_VerifyTimesOnce_ReturnTrue()
     {
       //Arrange
       var vwFullDataCustomer = new List<VwFullDataCustomer>
@@ -137,6 +137,7 @@ namespace WebApi.UnitTest.CustomerTests
 
       //Assert
       repositoryCustomerMock.Verify(cp => cp.GetFullDataWithFilter("", "", "").Result, Times.Once);
+
     }
 
   }
