@@ -29,6 +29,20 @@ namespace WebApi.RegisterCustomer.ViewModel
           customer.PhoneNumber
       );
     }
+
+    public CustomerDtos()
+    {
+
+    }
+
+    public CustomerDtos(string name, string taxId, string password, string phoneNumber, string postalCode)
+    {
+      Name = name;
+      TaxId = taxId;
+      Password = password;
+      PhoneNumber = phoneNumber;
+      PostalCode = postalCode;
+    }
   }
 }
 
