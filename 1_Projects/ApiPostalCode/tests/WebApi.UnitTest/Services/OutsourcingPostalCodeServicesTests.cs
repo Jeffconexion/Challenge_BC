@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Options;
-using WebApi.Application.Config;
 using WebApi.Application.Services;
 using WebApi.Core.Dtos;
+using WebApi.Infrastructure.Config;
 using Xunit;
 
 namespace WebApi.UnitTest.Services

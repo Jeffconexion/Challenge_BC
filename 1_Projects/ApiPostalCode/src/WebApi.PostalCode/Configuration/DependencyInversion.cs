@@ -2,9 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using WebApi.Application.Config;
 using WebApi.Application.IServices;
 using WebApi.Application.Services;
+using WebApi.Infrastructure.Config;
 using static WebApi.PostalCode.Configuration.SwaggerConfig;
 
 namespace WebApi.PostalCode.Configuration
