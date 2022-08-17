@@ -7,7 +7,7 @@ using Xunit;
 namespace WebApi.IntegrationTeste.Config
 {
   [CollectionDefinition(nameof(IntegrationApiTestsFixtureCollection))]
-  public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<StartupApiTest>> { }
+  public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Startup>> { }
 
   public class IntegrationTestsFixture<TStartup> : IDisposable where TStartup : class
   {

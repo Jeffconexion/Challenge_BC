@@ -12,9 +12,9 @@ namespace WebApi.Integration.Teste
   [Collection(nameof(IntegrationApiTestsFixtureCollection))]
   public class RegisterCustomerTest
   {
-    private readonly IntegrationTestsFixture<StartupApiTest> _testsFixture;
+    private readonly IntegrationTestsFixture<Startup> _testsFixture;
 
-    public RegisterCustomerTest(IntegrationTestsFixture<StartupApiTest> testsFixture)
+    public RegisterCustomerTest(IntegrationTestsFixture<Startup> testsFixture)
     {
       _testsFixture = testsFixture;
     }
@@ -27,7 +27,7 @@ namespace WebApi.Integration.Teste
       Mock<IPostalCodeServices> _postalCodeService = new Mock<IPostalCodeServices>();
       CustomerDtos customer = new CustomerDtos()
       {
-        Name = "Sebastiana",
+        Name = "Marcos",
         TaxId = "38814041806",
         Password = "12s34T56#",
         PhoneNumber = "(79) 2601-8122",

@@ -11,9 +11,9 @@ namespace WebApi.IntegrationTeste
   [Collection(nameof(IntegrationApiTestsFixtureCollection))]
   public class FullAdressTest
   {
-    private readonly IntegrationTestsFixture<StartupApiTest> _testsFixture;
+    private readonly IntegrationTestsFixture<Startup> _testsFixture;
 
-    public FullAdressTest(IntegrationTestsFixture<StartupApiTest> testsFixture)
+    public FullAdressTest(IntegrationTestsFixture<Startup> testsFixture)
     {
       _testsFixture = testsFixture;
     }

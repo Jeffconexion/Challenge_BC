@@ -7,7 +7,7 @@ using Xunit;
 namespace WebApi.Integration.Teste.Config
 {
   [CollectionDefinition(nameof(IntegrationApiTestsFixtureCollection))]
-  public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<StartupApiTest>> { }
+  public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Startup>> { }
 
   public class IntegrationTestsFixture<TStartup> : IDisposable where TStartup : class
   {
@@ -19,7 +19,7 @@ namespace WebApi.Integration.Teste.Config
       var clientOptions = new WebApplicationFactoryClientOptions
       {
         AllowAutoRedirect = true,
-        BaseAddress = new Uri("https://localhost:44338/"),
+        BaseAddress = new Uri("https://localhost:44361/"),
         HandleCookies = true,
         MaxAutomaticRedirections = 7
       };

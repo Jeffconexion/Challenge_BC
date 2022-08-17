@@ -8,7 +8,7 @@ namespace WebApi.Integration.Teste.Config
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
       builder.UseStartup<TStartup>();
-      builder.UseEnvironment("Development");
+      builder.UseEnvironment("Testing");
     }
   }
 }
