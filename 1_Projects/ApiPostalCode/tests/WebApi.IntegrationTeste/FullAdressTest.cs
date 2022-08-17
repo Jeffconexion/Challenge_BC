@@ -31,7 +31,6 @@ namespace WebApi.IntegrationTeste
       //assert
       postalCode.Ok.Should().BeTrue().And.Be(true);
       postalCode.Should().NotBeNull();
-
     }
 
     [Fact(DisplayName = "Search Postal Code Not Successfully")]
