@@ -7,7 +7,10 @@ namespace WebApi.Integration.Teste.Config
   {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
+      //Obtem uma class genérica.
       builder.UseStartup<TStartup>();
+
+      //Obtem configurações do arquivo appsettings.Testing.json
       builder.UseEnvironment("Testing");
     }
   }
