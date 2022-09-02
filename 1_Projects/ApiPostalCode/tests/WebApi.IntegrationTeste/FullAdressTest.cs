@@ -45,7 +45,6 @@ namespace WebApi.IntegrationTeste
 
       //assert
       postalCode.Ok.Should().BeFalse().And.Be(false);
-      postalCode.Status.Should().Be(404);
     }
   }
 }

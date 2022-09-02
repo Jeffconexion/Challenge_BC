@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY ["src/WebApi.PostalCode/WebApi.PostalCode.csproj", "src/WebApi.PostalCode/"]
+COPY ["src/WebApi.Infrastructure/WebApi.Infrastructure.csproj", "src/WebApi.Infrastructure/"]
+COPY ["src/WebApi.Application/WebApi.Application.csproj", "src/WebApi.Application/"]
+COPY ["src/WebApi.Core/WebApi.Core.csproj", "src/WebApi.Core/"]
+RUN dotnet restore "src/WebApi.PostalCode/WebApi.PostalCode.csproj"
+COPY . .
+WORKDIR "/src/src/WebApi.PostalCode"
+RUN dotnet build "WebApi.PostalCode.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "WebApi.PostalCode.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "WebApi.PostalCode.dll"]

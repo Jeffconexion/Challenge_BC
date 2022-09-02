@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  webapi.postalcode:
+    container_name : webapi.postalcode
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"

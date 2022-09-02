@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  webapi.postalcode:
+    image: ${DOCKER_REGISTRY-}webapipostalcode
+    build:
+      context: .
+      dockerfile: src/WebApi.PostalCode/Dockerfile
+    

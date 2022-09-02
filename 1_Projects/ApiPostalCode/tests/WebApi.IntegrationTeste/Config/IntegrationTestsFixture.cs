@@ -19,7 +19,7 @@ namespace WebApi.IntegrationTeste.Config
       var clientOptions = new WebApplicationFactoryClientOptions
       {
         AllowAutoRedirect = true,
-        BaseAddress = new Uri("https://localhost:44338/"),
+        BaseAddress = new Uri("http://localhost:8000/"),
         HandleCookies = true,
         MaxAutomaticRedirections = 7
       };

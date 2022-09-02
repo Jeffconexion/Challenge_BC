@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  webapi.postalcode:
+    container_name: webapi.postalcode    
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    image: webapipostalcodeimage
+    build:
+      context: .
+      dockerfile: WebApi.PostalCode/Dockerfile
+    ports:
+       - "8000:80"   
+    
