@@ -18,16 +18,14 @@ namespace WebApi.RegisterCustomer
 
     public void ConfigureServices(IServiceCollection services)
     {
+      services.GeneralSettingsDependencyInversionServices(Configuration);
       services.GeneralSettingsServices();
       services.DatabaseSettingsDependencyInversion(Configuration);
-      services.GeneralSettingsDependencyInversionServices(Configuration);
-      services.SwaggerConfigServices();
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       app.UseGeneralSettingsBuilder(env);
-      app.UseSwaggerConfig(provider);
     }
   }
 }

@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  webapi.registercustomer:
+    image: ${DOCKER_REGISTRY-}webapiregistercustomer
+    build:
+      context: .
+      dockerfile: src/WebApi.RegisterCustomer/Dockerfile
+    depends_on:
+      - sqlserver
+    
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    hostname: 'sqlserver'
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: "04319283Numsei#2022"    
+    ports:
+      - '11433:1433'    
+    expose:
+      - 1433
+    

@@ -12,7 +12,7 @@ namespace WebApi.Infrastructure.ExternalServices
     public async Task<TOutput> CallGetApiPostalCode<TOutput, TInput>(TInput requestBody, string endpoint, HttpMethod verb) where TInput : HttpContent
     {
       using var client = new HttpClient();
-      client.BaseAddress = new Uri("https://localhost:44338/");
+      client.BaseAddress = new Uri("http://localhost:44338/");
       client.DefaultRequestHeaders.Accept.Clear();
       client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

@@ -1,15 +1,14 @@
 version: '3.4'
 
 services:
-  webapi.postalcode:
-    container_name : webapi.postalcode
+  webapi.registercustomer:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "44338:80"
+      - "32033:80"   
     networks:
-    - teste1
-
+        - teste2
+     
 networks:
-  teste1:
+  teste2:
     driver: bridge

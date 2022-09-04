@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
+using Microsoft.OpenApi.Models;
 using WebApi.RegisterCustomer.Filters;
 using WebApi.RegisterCustomer.Validations;
 
@@ -17,6 +18,19 @@ namespace WebApi.RegisterCustomer.Configuration
     {
       services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
+
+      services.Configure<ApiBehaviorOptions>(options =>
+      {
+        options.SuppressModelStateInvalidFilter = true;
+
+      });
+
+      services.AddControllers();
+
+      services.AddSwaggerGen(c =>
+      {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiRegisterCustomer", Version = "v1" });
+      });
 
       services.AddApiVersioning(options =>
       {
@@ -65,19 +79,14 @@ namespace WebApi.RegisterCustomer.Configuration
     {
       if (env.IsDevelopment())
       {
-        app.UseCors("Development");
         app.UseDeveloperExceptionPage();
-      }
-      else
-      {
-        app.UseCors("Development");
-        app.UseHsts();
+        app.UseSwagger();
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiRegisterCustomer v1"));
       }
 
-      app.UseHttpsRedirection();
       app.UseRouting();
 
-      app.UseStaticFiles();
+      app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {
